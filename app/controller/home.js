@@ -4,7 +4,8 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    ctx.body = 'hi iMap';
+    const ctx = this.ctx;
+    ctx.body = 'hi, iMap';
     ctx.status = 200;
   }
 }
