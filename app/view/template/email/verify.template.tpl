@@ -102,7 +102,7 @@
   <script src="https://dn-avoscloud.qbox.me/statics/jquery.jsonp.js"></script>
 
   <script type="text/javascript">
-    var url = "https://api.imap.trevor.top/template/email/verify/";
+    var url = "https://leancloud.cn/1/verifyEmail/";
     var tip_err ="邮箱验证出错";
     var tip_success ="邮箱验证成功";
     function getParam() {
