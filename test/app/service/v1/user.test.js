@@ -4,7 +4,7 @@ const { app, assert } = require('egg-mock/bootstrap');
 
 describe('test/app/service/user.test.js', () => {
   // 测试第三方登录 - GitHub
-  it('It should return a userInfo', async () => {
+  it('It should return a user info', async () => {
     const ctx = app.mockContext();
     const model = {
       username: 'test',
