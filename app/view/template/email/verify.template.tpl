@@ -139,7 +139,7 @@
             }
           },
           error:function(result,text){
-            $("#tip").text("服务器发生错误");
+            $("#tip").text("服务器发生错误").css('background', '#ed3f14');
           }
         });
     }

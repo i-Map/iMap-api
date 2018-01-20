@@ -9,6 +9,7 @@ module.exports = app => {
 
   // 邮件模板
   app.router.get('/template/email/verify', controller.template.email.verify);
+  app.router.get('/template/email/reset', controller.template.email.verify);
 
   app.router.post('/v1/login', controller.v1.user.login);
   app.router.post('/v1/reset', controller.v1.user.reset);

@@ -13,6 +13,17 @@ class TemplateEmailController extends Controller {
 
     ctx.status = 200;
   }
+
+  /**
+   * 邮件重置密码模板
+   */
+  async reset() {
+    const ctx = this.ctx;
+
+    ctx.body = await ctx.renderView('template/email/reset.template.tpl');
+
+    ctx.status = 200;
+  }
 }
 
 module.exports = TemplateEmailController;
