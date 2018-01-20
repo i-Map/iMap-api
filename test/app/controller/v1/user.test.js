@@ -15,6 +15,16 @@ describe('test/app/controller/user.test.js', () => {
       .expect(200);
   });
 
+  // 测试重置密码
+  it('POST | /v1/reset', async () => {
+    return app.httpRequest()
+      .post('/v1/reset')
+      .type('json')
+      .send({
+        email: 'test@gmail.com',
+      });
+  });
+
   // 测试第三方登录 - GitHub
   it('GET | /v1/oauth/github', async () => {
     return app.httpRequest()

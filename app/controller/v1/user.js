@@ -97,6 +97,24 @@ class UserController extends Controller {
       ctx.status = 200;
     }
   }
+
+  // 重置密码
+  async reset() {
+    const ctx = this.ctx;
+    const model = ctx.request.body;
+
+    const rule = {
+      email: {
+        type: 'email',
+      },
+    };
+    ctx.validate(rule);
+
+    await ctx.service.v1.user.reset(model);
+
+    ctx.body = {};
+    ctx.status = 200;
+  }
 }
 
 module.exports = UserController;
