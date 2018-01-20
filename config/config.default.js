@@ -34,7 +34,14 @@ module.exports = () => {
   // 返回格式处理中间件
   config.responseHandler = {
     enable: true,
-    ignore: /\/passport\/github\/callback/,
+    ignore: [
+      /\/template/,
+    ],
+  };
+
+  // 模板渲染
+  config.view = {
+    defaultViewEngine: 'nunjucks',
   };
 
   // 鉴权中间件
@@ -44,6 +51,7 @@ module.exports = () => {
       '/v1/login',
       '/v1/reset',
       /\/oauth/,
+      /\/template/,
     ],
   };
 
