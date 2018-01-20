@@ -6,7 +6,6 @@ package-lock.json
 yarn.lock
 coverage/
 config/config.local.js
-config/config.unittest.js
 .vscode/
 .idea/
 run/
