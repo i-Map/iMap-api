@@ -31,6 +31,30 @@ module.exports = () => {
     },
   };
 
+  // 返回格式处理中间件
+  config.responseHandler = {
+    enable: true,
+    ignore: /\/passport\/github\/callback/,
+  };
+
+  // 鉴权中间件
+  config.jwt = {
+    enable: true,
+    ignore: [
+      '/v1/login',
+      '/v1/reset',
+      /\/oauth/,
+    ],
+  };
+
+  // 中间件加载顺序
+  config.middleware = [
+    'cors',
+    'errorHandler',
+    'responseHandler',
+    'jwt',
+  ];
+
   return config;
 };
 

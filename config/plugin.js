@@ -18,8 +18,14 @@ exports.validate = {
   enable: true,
 };
 
-// 跨域插件
-exports.cors = {
-  package: 'egg-cors',
-  enable: true,
+// passport 插件
+exports.passport = {
+  enable: false,
+  package: 'egg-passport',
+};
+
+// passport-github 插件
+exports.passportGithub = {
+  enable: false,
+  package: 'egg-passport-github',
 };
