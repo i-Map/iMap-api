@@ -1,2 +1,3 @@
 coverage
 config/config.prod.js
+config/config.unittest.js
