@@ -10,15 +10,3 @@ script:
   - npm run ci
 after_script:
   - npminstall codecov && codecov
-env:
-  global:
-    - IMAP_API_KEY
-    - IMAP_API_LEANCLOUD_APPID
-    - IMAP_API_LEANCLOUD_APPKEY
-    - IMAP_API_LEANCLOUD_MASTERKEY
-    - IMAP_API_SECRET
-    - IMAP_GITHUB_CLIENT_ID
-    - IMAP_GITHUB_CLIENT_SECRET
-    - IMAP_GITHUB_ACCESS_TOKEN_URL
-    - IMAP_GITHUB_REDIRECT_URL
-    - IMAP_GITHUB_USER
