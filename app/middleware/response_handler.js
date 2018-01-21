@@ -12,7 +12,7 @@ module.exports = () => {
     if (ctx.body && !ctx.body.error) {
       ctx.body = {
         code: 0,
-        msg: 'Success',
+        msg: ctx.body.msg || 'Success',
         data: ctx.body.data,
       };
     } else if (ctx.body && ctx.body.error) {
@@ -23,7 +23,7 @@ module.exports = () => {
     } else {
       ctx.body = {
         code: 3,
-        msg: 'Not Found',
+        msg: ctx.__('Not Found'),
       };
       ctx.status = 404;
     }

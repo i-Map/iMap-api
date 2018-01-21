@@ -55,6 +55,15 @@ module.exports = () => {
     ],
   };
 
+  // 国际化
+  exports.i18n = {
+    defaultLocale: 'zh-CN',
+    queryField: 'lang',
+    cookieField: 'lang',
+    cookieMaxAge: '1y',
+  };
+
+
   // 中间件加载顺序
   config.middleware = [
     'cors',

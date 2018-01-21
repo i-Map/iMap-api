@@ -11,7 +11,7 @@ class UserService extends Service {
   async login(model) {
     const AV = this.ctx.AV;
 
-    const loginedUser = await AV.User.logIn(model.username, model.password);
+    const loginedUser = await AV.User.logIn(model.email, model.password);
 
     return loginedUser;
   }

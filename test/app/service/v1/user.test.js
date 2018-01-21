@@ -7,13 +7,13 @@ describe('test/app/service/user.test.js', () => {
   it('It should return a user info', async () => {
     const ctx = app.mockContext();
     const model = {
-      username: 'test',
+      email: 'test@gmail.com',
       password: 'test',
     };
 
     const result = await ctx.service.v1.user.login(model);
 
-    assert(result.attributes.username === 'test');
+    assert(result.attributes.username === 'test@gmail.com');
   });
 
   // 测试登录

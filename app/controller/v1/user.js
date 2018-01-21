@@ -10,10 +10,8 @@ class UserController extends Controller {
     const model = ctx.request.body;
 
     const rule = {
-      username: {
-        type: 'string',
-        min: 4,
-        max: 25,
+      email: {
+        type: 'email',
       },
       password: {
         type: 'password',
@@ -33,7 +31,7 @@ class UserController extends Controller {
           data: {
             objectId: result.id,
           },
-          exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24),
+          exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
         }, 'ncyimou'),
       },
     };
@@ -90,7 +88,7 @@ class UserController extends Controller {
             data: {
               objectId: loginedUser.id,
             },
-            exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24),
+            exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
           }, 'ncyimou'),
         },
       };
@@ -112,7 +110,9 @@ class UserController extends Controller {
 
     await ctx.service.v1.user.reset(model);
 
-    ctx.body = {};
+    ctx.body = {
+      msg: '邮件发送成功',
+    };
     ctx.status = 200;
   }
 }

@@ -12,7 +12,14 @@ module.exports = () => {
       await next();
     } catch (error) {
       ctx.app.emit('error', error);
-      if (isNaN(error.code)) {
+      if (error.code && isNaN(error.code) && error.errors) {
+        error.errors = error.errors.map(item => {
+          return {
+            message: item.message,
+            field: item.field,
+          };
+        });
+
         ctx.body = {
           code: 1,
           msg: error.message,
@@ -22,19 +29,19 @@ module.exports = () => {
       } else if (error.code || error.rawMessage) {
         ctx.body = {
           code: Number(error.code),
-          msg: error.rawMessage || error.message,
+          msg: ctx.__(error.rawMessage) || ctx.__(error.message),
         };
         ctx.status = 500;
       } else if (error.message) {
         ctx.body = {
           code: 2,
-          msg: error.message,
+          msg: ctx.__(error.message),
         };
         ctx.status = 401;
       } else {
         ctx.body = {
           code: 3,
-          msg: 'Server Error',
+          msg: ctx.__('Server Error'),
         };
         ctx.status = 500;
       }

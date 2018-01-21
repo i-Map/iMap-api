@@ -9,7 +9,7 @@ describe('test/app/controller/user.test.js', () => {
       .post('/v1/login')
       .type('json')
       .send({
-        username: 'test',
+        email: 'test@gmail.com',
         password: 'test',
       })
       .expect(200);
