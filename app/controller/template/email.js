@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 
 class TemplateEmailController extends Controller {
   /**
-   * 邮件验证模板
+   * 邮箱验证模板
    */
   async verify() {
     const ctx = this.ctx;
@@ -15,7 +15,7 @@ class TemplateEmailController extends Controller {
   }
 
   /**
-   * 邮件重置密码模板
+   * 重置密码模板
    */
   async reset() {
     const ctx = this.ctx;
