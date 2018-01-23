@@ -12,4 +12,5 @@ module.exports = {
   'An user with the specified email was not found.': '请先注册',
 
   // response_handler
+  Success: '成功',
 };

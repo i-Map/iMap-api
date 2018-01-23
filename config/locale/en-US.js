@@ -13,4 +13,5 @@ module.exports = {
   '请不要往同一个邮件地址发送太多邮件。': 'Please dont\'t send too much emails',
 
   // response_handler
+  Success: 'Success',
 };

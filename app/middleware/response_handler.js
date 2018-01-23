@@ -12,7 +12,7 @@ module.exports = () => {
     if (ctx.body && !ctx.body.error) {
       ctx.body = {
         code: 0,
-        msg: ctx.body.msg || 'Success',
+        msg: ctx.body.msg || ctx.__('Success'),
         data: ctx.body.data,
       };
     } else if (ctx.body && ctx.body.error) {

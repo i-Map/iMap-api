@@ -24,6 +24,7 @@ class UserController extends Controller {
     const result = await ctx.service.v1.user.login(model);
 
     ctx.body = {
+      msg: '登录成功',
       data: {
         oauth: false,
         user: result,
@@ -32,7 +33,7 @@ class UserController extends Controller {
             objectId: result.id,
           },
           exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
-        }, 'ncyimou'),
+        }, ctx.app.config.jwt.secret),
       },
     };
     ctx.status = 200;
@@ -80,6 +81,7 @@ class UserController extends Controller {
       const loginedUser = await ctx.service.v1.user.oauth(authData, 'github');
 
       ctx.body = {
+        msg: '登录成功',
         data: {
           oauth: true,
           user: loginedUser,
@@ -89,7 +91,7 @@ class UserController extends Controller {
               objectId: loginedUser.id,
             },
             exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
-          }, 'ncyimou'),
+          }, ctx.app.config.jwt.secret),
         },
       };
       ctx.status = 200;
