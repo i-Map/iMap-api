@@ -24,7 +24,7 @@ class UserController extends Controller {
     const result = await ctx.service.v1.user.login(model);
 
     ctx.body = {
-      msg: '登录成功',
+      msg: ctx.__('Login successful'),
       data: {
         oauth: false,
         user: result,
@@ -51,7 +51,7 @@ class UserController extends Controller {
 
     if (!code) {
       ctx.body = {
-        error: 'github code 不能为空',
+        error: ctx.__('GitHub code can not be empty'),
       };
       ctx.status = 500;
     } else {
@@ -81,7 +81,7 @@ class UserController extends Controller {
       const loginedUser = await ctx.service.v1.user.oauth(authData, 'github');
 
       ctx.body = {
-        msg: '登录成功',
+        msg: ctx.__('Login successful'),
         data: {
           oauth: true,
           user: loginedUser,
@@ -113,7 +113,7 @@ class UserController extends Controller {
     await ctx.service.v1.user.reset(model);
 
     ctx.body = {
-      msg: '邮件发送成功',
+      msg: ctx.__('Mail sent successfully'),
     };
     ctx.status = 200;
   }

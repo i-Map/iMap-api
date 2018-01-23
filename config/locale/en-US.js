@@ -5,6 +5,7 @@ module.exports = {
   'Not Found': 'Not Found',
   'Authentication Error': 'Authentication Error',
   'Server Error': 'Server Error',
+  'GitHub code can not be empty': 'GitHub code can not be empty',
 
   // Leancloud error
   'Email address isn\'t verified.': 'Email address isn\'t verified',
@@ -13,5 +14,9 @@ module.exports = {
   '请不要往同一个邮件地址发送太多邮件。': 'Please dont\'t send too much emails',
 
   // response_handler
-  Success: 'Success',
+  'Success': 'Success',
+
+  // user.js
+  'Login successful': 'Login successful',
+  'Mail sent successfully': 'Mail sent successfully'
 };
