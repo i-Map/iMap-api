@@ -49,6 +49,7 @@ module.exports = () => {
     enable: true,
     ignore: [
       '/v1/login',
+      '/v1/register',
       '/v1/reset',
       /\/oauth/,
       /\/template/,

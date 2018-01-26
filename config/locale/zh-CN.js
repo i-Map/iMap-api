@@ -11,11 +11,15 @@ module.exports = {
   'Email address isn\'t verified.': '邮箱未验证',
   'The username and password mismatch.': '账号密码不匹配',
   'An user with the specified email was not found.': '请先注册',
+  '请不要往同一个邮件地址发送太多邮件。': '请不要往同一个邮件地址发送太多邮件',
+  '此电子邮箱已经被占用。': '此电子邮箱已经被占用',
+  'Username has already been taken.': '昵称已经被占用',
+  'Could not find user.': '用户不存在',
 
   // response_handler
-  'Success': '成功',
+  Success: '成功',
 
   // user.js
   'Login successful': '登录成功',
-  'Mail sent successfully': '邮件发送成功'
+  'Mail sent successfully': '邮件发送成功',
 };

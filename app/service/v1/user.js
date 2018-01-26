@@ -22,12 +22,37 @@ class UserService extends Service {
    * @param {String} provider - 第三方登录提供者名称
    * @return {Object} loginedUser - 登录用户信息
    */
-  async oauth(authData, provider) {
+  async oauth(authData, model, provider) {
     const AV = this.ctx.AV;
 
-    const loginedUser = await AV.User.signUpOrlogInWithAuthData(authData, provider);
+    const beforeLoginResult = await AV.User.signUpOrlogInWithAuthData(authData, provider);
+    const user = AV.Object.createWithoutData('_User', beforeLoginResult.id);
+
+    user.set('nickname', model.username);
+    user.set('avatar_url', model.avatar_url);
+    await user.save();
+
+    const loginedUser = user.fetch()
 
     return loginedUser;
+  }
+
+  /**
+   * 注册
+   * @param {Object} model - 响应主体模型
+   * @return {Number} - 无返回
+   */
+  async register(model) {
+    const AV = this.ctx.AV;
+    const user = new AV.User();
+
+    user.setUsername(model.username);
+    user.setPassword(model.password);
+    user.setEmail(model.email);
+    user.set('nickname', model.nickname);
+    await user.signUp();
+
+    return 0;
   }
 
   /**

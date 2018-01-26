@@ -78,7 +78,11 @@ class UserController extends Controller {
 
       authData = { uid: String(result.data.id), access_token: String(sessionData.data.access_token) };
 
-      const loginedUser = await ctx.service.v1.user.oauth(authData, 'github');
+      const loginedUser = await ctx.service.v1.user.oauth(authData, {
+        username: result.data.name || result.data.login,
+        email: result.data.email || '',
+        avatar_url: result.data.avatar_url
+      }, 'github');
 
       ctx.body = {
         msg: ctx.__('Login successful'),
@@ -96,6 +100,36 @@ class UserController extends Controller {
       };
       ctx.status = 200;
     }
+  }
+
+  // 注册
+  async register() {
+    const ctx = this.ctx;
+    const model = ctx.request.body;
+
+    const rule = {
+      username: {
+        type: 'string',
+        min: 1,
+        max: 15,
+      },
+      email: {
+        type: 'email',
+      },
+      password: {
+        type: 'password',
+        min: 4,
+        max: 25,
+      },
+    };
+    ctx.validate(rule);
+
+    await ctx.service.v1.user.register(model);
+
+    ctx.body = {
+      msg: ctx.__('Signup successful'),
+    };
+    ctx.status = 200;
   }
 
   // 重置密码
