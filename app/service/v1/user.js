@@ -19,6 +19,7 @@ class UserService extends Service {
   /**
    * 第三方登录 - GitHub
    * @param {Object} authData - 第三方注册数据
+   * @param {Object} model - 用户 GitHub 数据
    * @param {String} provider - 第三方登录提供者名称
    * @return {Object} loginedUser - 登录用户信息
    */
@@ -32,7 +33,7 @@ class UserService extends Service {
     user.set('avatar_url', model.avatar_url);
     await user.save();
 
-    const loginedUser = user.fetch()
+    const loginedUser = user.fetch();
 
     return loginedUser;
   }

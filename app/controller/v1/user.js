@@ -81,7 +81,7 @@ class UserController extends Controller {
       const loginedUser = await ctx.service.v1.user.oauth(authData, {
         username: result.data.name || result.data.login,
         email: result.data.email || '',
-        avatar_url: result.data.avatar_url
+        avatar_url: result.data.avatar_url,
       }, 'github');
 
       ctx.body = {
