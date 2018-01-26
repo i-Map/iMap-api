@@ -29,7 +29,7 @@ class UserService extends Service {
     const beforeLoginResult = await AV.User.signUpOrlogInWithAuthData(authData, provider);
     const user = AV.Object.createWithoutData('_User', beforeLoginResult.id);
 
-    user.set('nickname', model.username);
+    user.set('nickname', model.nickname);
     user.set('avatar_url', model.avatar_url);
     await user.save();
 

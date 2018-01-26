@@ -24,7 +24,11 @@ describe('test/app/service/user.test.js', () => {
       access_token: '123',
     };
 
-    const result = await ctx.service.v1.user.oauth(authData, 'github');
+    const result = await ctx.service.v1.user.oauth(authData, {
+      nickname: 'test',
+      email: 'test@test.com',
+      avatar_url: 'http://test.com',
+    }, 'github');
 
     assert(result);
   });

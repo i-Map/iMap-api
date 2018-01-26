@@ -79,7 +79,7 @@ class UserController extends Controller {
       authData = { uid: String(result.data.id), access_token: String(sessionData.data.access_token) };
 
       const loginedUser = await ctx.service.v1.user.oauth(authData, {
-        username: result.data.name || result.data.login,
+        nickname: result.data.name || result.data.login,
         email: result.data.email || '',
         avatar_url: result.data.avatar_url,
       }, 'github');
