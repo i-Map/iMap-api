@@ -16,10 +16,15 @@ module.exports = {
   'Username has already been taken.': '昵称已经被占用',
   'Could not find user.': '用户不存在',
 
+  // upload
+  'Upload successful': '上传成功',
+
   // response_handler
   Success: '成功',
 
   // user.js
   'Login successful': '登录成功',
+  'Signup successful': '注册成功',
+  'Update successful': '更新成功',
   'Mail sent successfully': '邮件发送成功',
 };

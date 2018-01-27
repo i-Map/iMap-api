@@ -16,10 +16,15 @@ module.exports = {
   'Username has already been taken.': 'Nickname has already been taken',
   'Could not find user.': 'Could not find user',
 
+  // upload
+  'Upload successful': 'Upload successful',
+
   // response_handler
   Success: 'Success',
 
   // user.js
   'Login successful': 'Login successful',
+  'Signup successful': 'Signup successful',
+  'Update successful': 'Update successful',
   'Mail sent successfully': 'Mail sent successfully',
 };

@@ -14,7 +14,8 @@
     "egg-view-nunjucks": "^2.1.4",
     "jsonwebtoken": "^8.1.0",
     "kcors": "^2.2.1",
-    "koa-jwt": "^3.3.0"
+    "koa-jwt": "^3.3.0",
+    "stream-to-array": "^2.3.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

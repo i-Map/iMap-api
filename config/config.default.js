@@ -31,6 +31,20 @@ module.exports = () => {
     },
   };
 
+  // 文件上传
+  exports.multipart = {
+    fileSize: '3mb',
+    whitelist: [
+      '.jpg',
+      '.jpeg',
+      '.png',
+      '.gif',
+      '.bmp',
+      '.wbmp',
+      '.webp',
+    ],
+  };
+
   // 返回格式处理中间件
   config.responseHandler = {
     enable: true,
@@ -47,6 +61,7 @@ module.exports = () => {
   // 鉴权中间件
   config.jwt = {
     enable: true,
+    key: 'user',
     ignore: [
       '/v1/login',
       '/v1/register',

@@ -108,7 +108,7 @@ class UserController extends Controller {
     const model = ctx.request.body;
 
     const rule = {
-      username: {
+      nickname: {
         type: 'string',
         min: 1,
         max: 15,
@@ -129,7 +129,51 @@ class UserController extends Controller {
     ctx.body = {
       msg: ctx.__('Signup successful'),
     };
-    ctx.status = 200;
+    ctx.status = 201;
+  }
+
+  // 更新
+  async update() {
+    const ctx = this.ctx;
+    const model = ctx.request.body;
+
+    const rule = {
+      avatarModel: {
+        type: 'object',
+        name: {
+          type: 'string',
+        },
+        base64: {
+          type: 'string',
+        },
+        required: false,
+      },
+      nicknameModel: {
+        type: 'object',
+        nickname: {
+          type: 'string',
+          min: 1,
+          max: 10,
+        },
+        required: false,
+      },
+      emailModel: {
+        type: 'object',
+        email: {
+          type: 'email',
+        },
+        required: false,
+      },
+    };
+    ctx.validate(rule);
+
+    const result = await ctx.service.v1.user.update(model);
+
+    ctx.body = {
+      msg: ctx.__('Update successful'),
+      data: result,
+    };
+    ctx.status = 201;
   }
 
   // 重置密码
