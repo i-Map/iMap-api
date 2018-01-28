@@ -16,7 +16,7 @@ describe('test/app/controller/travelogue.test.js', () => {
     }, ctx.app.config.jwt.secret);
 
     return app.httpRequest()
-      .patch('/v1/travelogue')
+      .post('/v1/travelogue')
       .type('json')
       .set('Authorization', token)
       .send({

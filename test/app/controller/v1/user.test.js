@@ -49,7 +49,7 @@ describe('test/app/controller/user.test.js', () => {
       .type('json')
       .send({
         nickname: 'test',
-        email: `test_${new Date.now()}@gmail.com`,
+        email: `test_${ Date.now() }@gmail.com`,
         password: 'test',
       })
       .expect(201);
