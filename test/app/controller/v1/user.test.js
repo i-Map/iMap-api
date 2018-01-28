@@ -2,14 +2,6 @@
 
 const jwt = require('jsonwebtoken');
 const { app } = require('egg-mock/bootstrap');
-const ctx = app.mockContext();
-
-const token = 'Bearer ' + jwt.sign({
-  data: {
-    objectId: '5a6cc9dba22b9d003d01d0e3',
-  },
-  exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
-}, ctx.app.config.jwt.secret);
 
 describe('test/app/controller/user.test.js', () => {
   // 测试登录
@@ -65,6 +57,15 @@ describe('test/app/controller/user.test.js', () => {
 
   // 测试更新
   it('PATCH | /v1/user', async () => {
+    const ctx = app.mockContext();
+
+    const token = 'Bearer ' + jwt.sign({
+      data: {
+        objectId: '5a6cc9dba22b9d003d01d0e3',
+      },
+      exp: Math.floor(Date.now() / 1000) + (24 * 60 * 60),
+    }, ctx.app.config.jwt.secret);
+
     return app.httpRequest()
       .patch('/v1/user')
       .type('json')
